@@ -13,33 +13,12 @@
         }
     },
     "dev" : {
-        "url" : "http://localhost/devjobbers/blog.devjobbers.com",
-        "database": {
-            "host": "127.0.0.1",
-            "name" : "asap",
-            "port" : "3306",
-            "user" : "root",
-            "password" : "root"
-        }
+        "url" : "http://localhost/devjobbers/blog.devjobbers.com"
     },
     "prod" : {
-        "url" : "https://www.devjobbers.com",
-        "database": {
-            "host": "127.0.0.1",
-            "name" : "asap",
-            "port" : "3306",
-            "user" : "root",
-            "password" : "root"
-        }
+        "url" : "https://www.devjobbers.com"
     },
     "debug" : {
-        "url" : "http://localhost:80/AppCore",
-        "database": {
-            "host": "127.0.0.1",
-            "name" : "asap",
-            "port" : "3306",
-            "user" : "root",
-            "password" : "root"
-        }
+        "url" : "http://localhost:80/AppCore"
     }
 }
