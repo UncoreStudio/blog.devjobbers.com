@@ -34,6 +34,6 @@ class View
         extract($this->controller->getData());
 
         // Include the view file
-        include($this->controller->getView());
+        require($this->controller->getView());
     }
 }

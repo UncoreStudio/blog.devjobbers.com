@@ -39,7 +39,7 @@ class Main
 
     public function getEnvironment()
     {
-        return $this->getConfig()->env;
+        return strtolower($this->getConfig()->env);
     }
 
     public function getRootUrl(): string

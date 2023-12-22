@@ -4,33 +4,62 @@ namespace AsaP\Repositories;
 use AsaP\Database;
 use AsaP\Entities\Category;
 
-class CategoryRepository 
+class CategoryRepository
 {
 
-    public static function getCategory(int $category_id): Category
+    public static function getCategoryBySlug(string $category_slug): Category
     {
-        // Get the article from the database by ID
-        $query = "SELECT category_id, 
-                        category_name 
-                FROM categories 
-                WHERE category_id = :category_id";
+       // Instead of fetching the database, fetch it from the API
+       $data = file_get_contents('https://api.devjobbers.com/categories/' . $category_slug);
+       $data = json_decode($data, true);
 
-        $params = array(':category_id' => $category_id);
-        $result = Database::prepare($query, $params, 'AsaP\Entities\Category');
+       // Article are inside the "data" key
+       $data = $data['data'];
 
-        return $result[0];
+       $category = new Category($data["category"], $data["children"], $data["brothers"]);
+
+       return $category;
     }
 
-    public static function getCategories() : array
+    public static function getCategories($category_slug = "developpement-web"): array
     {
-        $query = "SELECT category_id, 
-                        category_name 
-                FROM categories 
-                ORDER BY category_name ASC";
+        // Instead of fetching the database, fetch it from the API
+        $data = file_get_contents('https://api.devjobbers.com/categories/');
+        $data = json_decode($data, true);
 
-        $result = Database::prepare($query, [], 'AsaP\Entities\Category');
+        // Articles are inside the "data" key
+        $data = $data['data'];
 
-        return $result;
+        // Transform the array of articles into an array of Article objects
+        $categories = array_map(function ($category) {
+            return new Category($category);
+        }, $data);
+
+        return $categories;
+    }
+
+    public static function getCategoryBrothers($category_slug): array
+    {
+        // Instead of fetching the database, fetch it from the API
+        $data = file_get_contents('https://api.devjobbers.com/categories/' . $category_slug);
+        $data = json_decode($data, true);
+
+        // Articles are inside the "data" key
+        $data = $data['data'];
+
+        return $data["brothers"];
+    }
+
+    public static function getCategoryChildren($category_slug): array
+    {
+        // Instead of fetching the database, fetch it from the API
+        $data = file_get_contents('https://api.devjobbers.com/categories/' . $category_slug);
+        $data = json_decode($data, true);
+
+        // Articles are inside the "data" key
+        $data = $data['data'];
+
+        return $data["children"];
     }
 
 }

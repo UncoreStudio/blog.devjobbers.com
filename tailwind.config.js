@@ -1,12 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./input.css",
+    "./public/styles/input.css",
     "./**/**/**/*.{html,js,php}",
-    "./node_modules/flowbite/**/*.js"
   ],
   darkMode: 'class',
-  plugins: [
-    require('flowbite/plugin')
-  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#3dd577',
+      },
+    },
+    container: {
+      maxWidth: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1024px',
+        
+      }
+    },
+  },
 }

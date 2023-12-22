@@ -1,12 +1,19 @@
 {
-    "app_name" : "AsaP",
+    "app_name" : "Devjobbers",
     "env" : "dev",
     "meta" : {
-        "description" : "Welcome to AsaP. This is the default description.",
-        "keywords" : "appcore,sycatle,dev,web,framework,library,easy"
+        "description" : "Optez pour la facilité avec Devjobbers ! C’est la plateforme qui met en relation des développeurs freelance avec des clients en recherche de compétences spécifiques, le tout sécurisé et en toute transparence.",
+        "keywords" : "développeur web, freelance, indépendant, collaboration, talents informatiques, opportunités professionnelles, mise en relation, réussite entrepreneuriale, plateforme de talents",
+        "author" : "UncoreStudio",
+        "primary_color" : "#3dd577"
+    },
+    "analytics" : {
+        "google" : {
+            "id" : "G-8P37DL9CDT"
+        }
     },
     "dev" : {
-        "url" : "http://localhost:80/AppCore",
+        "url" : "http://localhost/devjobbers/blog.devjobbers.com",
         "database": {
             "host": "127.0.0.1",
             "name" : "asap",
@@ -16,7 +23,7 @@
         }
     },
     "prod" : {
-        "url" : "http://localhost:80/AppCore",
+        "url" : "https://www.devjobbers.com",
         "database": {
             "host": "127.0.0.1",
             "name" : "asap",

@@ -13,13 +13,33 @@ class Article
     public $article_slug;
     public $article_title;
     public $article_content;
-    public $article_categories;
-    public $article_date;
+    public $article_category_id;
+    public $article_created_at;
+    public $article_author;
+    public $article_visibility;
+    public $article_category_name;
+    public $article_category_slug;
+    public $article_category_parent_id;
+
+    public function __construct(array $article)
+    {
+        $this->article_id = $article['article_id'];
+        $this->article_slug = $article['article_slug'];
+        $this->article_title = $article['article_title'];
+        $this->article_content = $article['article_content'];
+        $this->article_category_id = $article['article_category_id'];
+        $this->article_created_at = $article['article_created_at'];
+        $this->article_author = $article['article_author'];
+        $this->article_visibility = $article['article_visibility'];
+        $this->article_category_name = $article['category_name'];
+        $this->article_category_slug = $article['category_slug'];
+        $this->article_category_parent_id = $article['category_parent_id'];
+    }
 
     /**
      * Get the value of id
      */
-    public function getId() : int
+    public function getId() : string
     {
         return $this->article_id;
     }
@@ -107,7 +127,7 @@ class Article
     public function getDate($dateFormat = "d/m/Y - h:i") : string
     {
         // Create a new DateTime object and format the date according to the given format
-        $date = new DateTime($this->article_date);
+        $date = new DateTime($this->article_created_at);
 
         return $date->format($dateFormat);
     }
@@ -119,10 +139,20 @@ class Article
      */
     public function getHref() : string
     {
-        $href = Main::getInstance()->getRootUrl() . "/blog/" . $this->getSlug() . "-" . $this->getId();
+        $href = Main::getInstance()->getRootUrl() . "/articles/" . $this->getSlug();
 
         // Return the URL of the article page
         return $href;
+    }
+
+    /**
+     * Get the author id
+     *
+     * @return  string
+     */
+    public function getAuthor() : array
+    {
+        return $this->article_author;
     }
 
     /**
@@ -130,9 +160,9 @@ class Article
      *
      * @return  self
      */
-    public function setDate($date)
+    public function setDate($date) : void
     {
-        $this->article_date = $date;
+        $this->article_created_at = $date;
     }
 
     /**
@@ -140,7 +170,7 @@ class Article
      *
      * @return string The path to the article's thumbnail
      */
-    public function getThumbnail()
+    public function getThumbnail() : string
     {
         $thumbnailDirectory = Main::getInstance()->getRootUrl() . "/uploads/articles/" . $this->getSlug() . ".webp";
 
@@ -153,20 +183,31 @@ class Article
     }
 
     /**
-     * Get the value of article_categories
+     * Get the value of article_category_id
      */ 
-    public function getCategories() : array
+    public function getCategoryId()
     {
-        return json_decode($this->article_categories);
+        return $this->article_category_id;
     }
 
     /**
-     * Set the value of article_categories
+     * Set the value of article_category_name
      *
      * @return  self
-     */ 
-    public function setCategories($article_categories) : void
+     */
+    public function getCategoryName()
     {
-        $this->article_categories = $article_categories;
+        return $this->article_category_name;
     }
+
+    /**
+     * Get the value of article_category_slug
+     *
+     * @return  self
+     */
+    public function getCategorySlug()
+    {
+        return $this->article_category_slug;
+    }
+
 }

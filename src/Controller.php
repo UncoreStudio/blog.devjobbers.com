@@ -16,7 +16,10 @@ abstract class Controller
     private bool $footer; // whether or not to display the footer
     private string $favicon; // the path to the favicon file
     private array $javascripts; // an array of javascript files to include
+    private array $deferredJavascripts; // an array of javascript files to include
     private array $cascadelinks; // an array of CSS files to include 
+    private string $bannerImage;
+    private array $breadcrumb;
 
     // Constructor
     public function __construct()
@@ -30,21 +33,26 @@ abstract class Controller
         $this->data = [];
         $this->header = true;
         $this->footer = true;
-        $this->favicon = "favicon.ico";
+        $this->favicon = Main::getInstance()->getRootUrl() . "/assets/img/icon_100x100.png";
+        $this->bannerImage = Main::getInstance()->getRootUrl() . "/assets/img/banner_landing.jpg";
         $this->cascadelinks = [
-            Main::getInstance()->getRootUrl() . '/public/styles/output.css'
+            Main::getInstance()->getRootUrl() . '/public/styles/output.css',
+            Main::getInstance()->getRootUrl() . '/public/styles/cookiebanner.css'
         ];
         $this->javascripts = [
-            Main::getInstance()->getRootUrl() . '/public/scripts/Cookies.js',
-            Main::getInstance()->getRootUrl() . '/public/scripts/Theme.js',
-            Main::getInstance()->getRootUrl() . '/public/scripts/Nav.js',
-            Main::getInstance()->getRootUrl() . '/node_modules/flowbite/dist/flowbite.min.js'
+            'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+            Main::getInstance()->getRootUrl() . '/public/scripts/CookieBanner.js'
         ];
+        $this->deferredJavascripts = [
+            Main::getInstance()->getRootUrl() . '/public/scripts/Nav.js',
+            // Main::getInstance()->getRootUrl() . '/public/scripts/Theme.js',
+        ];
+        $this->breadcrumb = [];
 
         $this->setup();
     }
 
-    public function setup() : void
+    public function setup(): void
     {
         return; // Do nothing by default
     }
@@ -55,13 +63,18 @@ abstract class Controller
         return; // Do nothing by default
     }
 
+    public function getAppName(): string
+    {
+        return Main::getInstance()->getConfig()->app_name;
+    }
+
     public function getTitle(): string
     {
         $title = $this->title;
 
         // Append the app name to the title if it's not already included
         if (trim($title) !== "" && $title !== null) {
-            $title = $title . " | ";
+            $title = $title . " - ";
         }
 
         return $title . Main::getInstance()->getConfig()->app_name;
@@ -79,6 +92,21 @@ abstract class Controller
         return $description;
     }
 
+    public function getAuthor(): string
+    {
+        return Main::getInstance()->getConfig()->meta->author;
+    }
+
+    public function getBreadcrumb(): array
+    {
+        return $this->breadcrumb;
+    }
+
+    public function getPrimaryColor(): string
+    {
+        return Main::getInstance()->getConfig()->meta->primary_color;
+    }
+
     public function getKeywords(): string
     {
         $keywords = $this->keywords;
@@ -89,6 +117,21 @@ abstract class Controller
         }
 
         return $keywords;
+    }
+
+    public function hasAllowedCookies(): bool
+    {
+        return (isset($_COOKIE['cookieConsent']) ? $_COOKIE['cookieConsent'] : '') === 'true';
+    }
+
+    public function getGoogleAnalyticsId(): string
+    {
+        return Main::getInstance()->getConfig()->analytics->google->id;
+    }
+
+    public function getBannerImage(): string
+    {
+        return $this->bannerImage;
     }
 
     // This function returns the view path string
@@ -119,6 +162,11 @@ abstract class Controller
     public function setView(string $viewPath): void
     {
         $this->viewPath = $viewPath;
+    }
+
+    public function setBreadcrumb(array $breadcrumb): void
+    {
+        $this->breadcrumb = $breadcrumb;
     }
 
     // This function sets the data array
@@ -169,15 +217,50 @@ abstract class Controller
         return $this->javascripts;
     }
 
+    // This function adds the given javascript string to the javascripts array
+    public function addJavascript(string $javascript): void
+    {
+        $this->javascripts[] = $javascript;
+    }
+
+    // This function returns the deferred javascripts array
+    public function getDeferredJavascripts(): array
+    {
+        return $this->deferredJavascripts;
+    }
+
+    // This function adds the given javascript string to the deferred javascripts array
+    public function addDeferredJavascript(string $javascript): void
+    {
+        $this->deferredJavascripts[] = $javascript;
+    }
+
     // This function returns the cascade links array
     public function getStylesheets(): array
     {
         return $this->cascadelinks;
     }
 
+    // This function adds the given stylesheet string to the cascade links array
+    public function addStylesheet(string $stylesheet): void
+    {
+        $this->cascadelinks[] = $stylesheet;
+    }
+
+    // This function gets the banner image
+    public function getBanner(): string
+    {
+        return Main::getInstance()->getRootUrl() . "/assets/img/banner.png";
+    }
+
     // This function returns the favicon string
     public function getFavicon()
     {
         return $this->favicon;
+    }
+
+    public function setBannerImage(string $bannerImage): void
+    {
+        $this->bannerImage = $bannerImage;
     }
 }

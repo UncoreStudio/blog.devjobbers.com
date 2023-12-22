@@ -4,64 +4,72 @@ namespace AsaP\Repositories;
 use AsaP\Database;
 use AsaP\Entities\Article;
 
-class ArticleRepository 
+class ArticleRepository
 {
 
-    public static function getArticle(int $article_id): Article
+    public static function getArticleBySlug(string $article_slug): Article
     {
-        // Get the article from the database by ID
-        $query = "SELECT article_id, 
-                        article_slug, 
-                        article_title, 
-                        article_content, 
-                        article_date, 
-                        article_categories 
-                    FROM articles 
-                    WHERE article_visibility = 'public' 
-                    AND article_id = :article_id";
+        // Instead of fetching the database, fetch it from the API
+        $article = file_get_contents('https://api.devjobbers.com/articles/' . $article_slug);
+        $article = json_decode($article, true);
 
-        $params = array(':article_id' => $article_id);
-        $result = Database::prepare($query, $params, 'AsaP\Entities\Article');
+        // Article are inside the "data" key
+        $article = $article['data'];
 
-        return $result[0];
+        // Transform the array of the article into Article objects
+        $article = new Article($article);
+
+        return $article;
     }
 
-    public static function getPublicArticlesByPostDate() : array
+    public static function getAllArticles(): array
     {
-        $query = "SELECT article_id, 
-                        article_slug, 
-                        article_title, 
-                        article_content, 
-                        article_date, 
-                        article_categories 
-                    FROM articles 
-                    WHERE article_visibility = 'public' 
-                    ORDER BY article_date DESC";
+        // This is the typical response to API : ["sucesss" => true, "data" => [...] ]
 
-        $result = Database::prepare($query, [], 'AsaP\Entities\Article');
+        // Instead of fetching the database, fetch it from the API
+        $articles = file_get_contents('https://api.devjobbers.com/articles/');
+        $articles = json_decode($articles, true);
 
-        return $result;
+        // Articles are inside the "data" key
+        $articles = $articles['data'];
+
+        // Transform the array of articles into an array of Article objects
+        $articles = array_map(function ($article) {
+            return new Article($article);
+        }, $articles);
+
+        return $articles;
     }
 
-    public static function getAllArticlesButExcept(int $article_id) : array
+    public static function getAllArticlesButExcept(string $article_slug): array
     {
-        // Get other articles from the database to display in the sidebar
-        $query = "SELECT article_id, 
-                        article_slug, 
-                        article_title, 
-                        article_content, 
-                        article_date,
-                        article_categories 
-                    FROM articles
-                    WHERE article_visibility = 'public' 
-                    AND article_id <> :article_id 
-                    ORDER BY article_date DESC LIMIT 6";
+        // Get all articles
+        $articles = self::getAllArticles();
 
-        $params = array(':article_id' => $article_id);
-        $result = Database::prepare($query, $params, 'AsaP\Entities\Article');
+        // Filter out the article with the given id
+        $articles = array_filter($articles, function ($article) use ($article_slug) {
+            return $article->getSlug() != $article_slug;
+        });
 
-        return $result;
+        return $articles;
     }
-    
+
+    public static function getArticlesByCategory(int $category_id): array
+    {
+        // Instead of fetching the database, fetch it from the API
+        $articles = file_get_contents('https://api.devjobbers.com/articles/?category_id=' . $category_id);
+        $articles = json_decode($articles, true);
+
+        // Articles are inside the "data" key
+        $articles = $articles['data'];
+
+        // Transform the array of articles into an array of Article objects
+        $articles = array_map(function ($article) {
+            return new Article($article);
+        }, $articles);
+
+        return $articles;
+    }
+
 
 }
