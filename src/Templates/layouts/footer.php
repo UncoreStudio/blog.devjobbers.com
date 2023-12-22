@@ -83,11 +83,6 @@ use AsaP\Main;
     </a>
   </div>
 
-  <div class="flex flex-row gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-    ©
-    <?= date('Y') ?> Devjobbers
-  </div>
-
   <div class="flex flex-col md:flex-row gap-2 text-center">
     <a href="<?= Main::getInstance()->getRootUrl() ?>/legal-mentions"
       class="text-sm font-normal text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">
@@ -101,4 +96,11 @@ use AsaP\Main;
       Contact
     </a>
   </div>
+
+  <div class="flex flex-row gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+    ©
+    <?= date('Y') ?> Devjobbers
+  </div>
+
+
 </footer>
