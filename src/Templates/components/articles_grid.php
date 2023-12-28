@@ -1,6 +1,6 @@
 <?php // Include only if there are articles
 if (count($articles) > 0) { ?>
-    <div class="py-6">
+    <div class="py-4">
         <h3 class="text-center lg:text-left mb-4 tracking-tight leading-none font-extrabold text-3xl">
             <?= isset($articlesTitle) ? $articlesTitle : "Articles" ?>
         </h3>
