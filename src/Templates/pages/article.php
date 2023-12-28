@@ -7,7 +7,8 @@ $article = $this->getController()->getArticle();
 ob_start();
 ?>
 
-<section class="mx-auto container lg:px-4 mt-24 gap-2 min-h-screen">
+<section class="mx-auto max-w-6xl lg:px-4 mt-24 gap-2 min-h-screen">
+
     <?php include("./src/Templates/layouts/breadcrumb.php"); ?>
 
     <header class="flex flex-col gap-2.5 px-1 lg:px-0 py-4">
@@ -48,7 +49,9 @@ ob_start();
         </div>
     </div>
 
-    <div id="articles" class="flex flex-col h-full container py-10 px-2 mx-auto rounded-lg" data-aos="fade-up" data-aos-offset="200"
+</section>
+
+<section id="articles" class="flex flex-col h-full max-w-6xl py-10 px-2 mx-auto rounded-lg" data-aos="fade-up" data-aos-offset="200"
         data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
 
         <?php
@@ -57,9 +60,7 @@ ob_start();
         include("./src/Templates/components/articles_grid.php");
         ?>
 
-    </div>
-
-</section>
+            </section>
 
 <?php
 $content = ob_get_clean();
