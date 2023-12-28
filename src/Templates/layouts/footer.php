@@ -4,7 +4,7 @@ use AsaP\Main;
 
 ?>
 
-<section id="newsletter" class="flex bg-primary text-white rounded-t-lg py-20 px-2 lg:px-4 container flex-col justify-center items-center">
+<section id="newsletter" class="flex mx-auto bg-primary text-white rounded-t-lg py-20 px-2 lg:px-4 container flex-col justify-center items-center">
   <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
     <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-center md:text-5xl lg:text-6xl">
       Rejoignez-nous !
