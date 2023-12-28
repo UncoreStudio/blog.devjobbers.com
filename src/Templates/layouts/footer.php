@@ -4,9 +4,8 @@ use AsaP\Main;
 
 ?>
 
-<section id="newsletter" class="flex p-2 py-10" data-aos="fade-up" data-aos-offset="100" data-aos-duration="500" data-aos-easing="ease-in-out"
-  data-aos-once="true">
-  <div class="flex w-full bg-primary text-white mx-auto rounded-lg py-20 px-2 lg:px-4 container flex-col justify-center items-center">
+<section id="newsletter" class="flex bg-primary text-white rounded-t-lg py-20 px-2 lg:px-4 container flex-col justify-center items-center">
+  <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
     <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-center md:text-5xl lg:text-6xl">
       Rejoignez-nous !
     </h2>
@@ -92,7 +91,8 @@ use AsaP\Main;
       class="text-sm font-normal text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">
       Politique de confidentialité
     </a>
-    <a href="mailto:contact@devjobbers.com" class="text-sm font-normal text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">
+    <a href="mailto:contact@devjobbers.com"
+      class="text-sm font-normal text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:underline">
       Contact
     </a>
   </div>

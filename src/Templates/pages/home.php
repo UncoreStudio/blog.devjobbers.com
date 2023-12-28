@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<section data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true"
+<section data-aos="zoom-in" data-aos-offset="150" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="true"
     class="bg-white dark:bg-gray-900 py-10 mt-20">
     <div class="py-6 lg:py-24 px-4 mx-auto max-w-screen-xl text-center">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -29,7 +29,7 @@ ob_start();
 </section>
 
 <section id="find-jobber" class="flex flex-col justify-center items-center h-full container px-2 bg-slate-50 mx-auto rounded-lg py-10"
-    data-aos="fade-up" data-aos-offset="200" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
+    data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-2">
         <div class="flex flex-col justify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" id="currentIllo" class="flex h-40 lg:h-80 w-auto" data-name="Layer 1" width="717.67003"
@@ -180,14 +180,13 @@ ob_start();
     </div>
 </section>
 
-<section id="become-jobber" class="flex flex-col justify-center items-center h-full container p-2 mx-auto rounded-lg py-10" data-aos="fade-up"
-    data-aos-offset="200" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
-    <h2 class="text-center lg:text-left mb-4 font-extrabold tracking-tight leading-none text-3xl md:text-4xl lg:text-5xl">
+<section id="become-jobber" class="flex flex-col justify-center items-center h-full container p-2 mx-auto rounded-lg py-10" >
+    <h2 class="text-center lg:text-left mb-4 font-extrabold tracking-tight leading-none text-3xl md:text-4xl lg:text-5xl" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
         Le meilleur ami des freelances
     </h2>
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 py-8">
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg width="46" height="46" fill="currentColor" class="w-16 h-16 mb-4 text-primary" viewBox="0 0 24 24">
                     <path d="M15.75 13.5h-7.5V12H.75v9.188a.562.562 0 0 0 .563.562h21.375a.562.562 0 0 0 .562-.563V12h-7.5v1.5Z"></path>
@@ -203,7 +202,7 @@ ob_start();
                 </p>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" class="w-16 h-16 mb-4 text-primary">
                     <path d="M.75 19.688A1.313 1.313 0 0 0 2.063 21h19.875a1.313 1.313 0 0 0 1.312-1.313V9.75H.75v9.938Z"></path>
@@ -218,7 +217,7 @@ ob_start();
             </div>
         </div>
 
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" stroke-linejoin="round"
                     class="w-16 h-16 mb-4 text-primary" stroke-width="1.5" stroke-linecap="round">
@@ -235,7 +234,7 @@ ob_start();
                 </p>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg fill="currentColor" viewBox="0 0 24 24" class="w-16 h-16 mb-4 text-primary">
                     <path
@@ -250,7 +249,7 @@ ob_start();
                 </p>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg class="w-16 h-16 mb-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M10.233 15.97a.75.75 0 0 0-1.28.53V18h-.938a1.313 1.313 0 0 1-1.312-1.313V7.125a3 3 0 1 0-3-.055v9.617A4.317 4.317 0 0 0 8.015 21h.938v1.5a.75.75 0 0 0 1.28.53l3-3a.75.75 0 0 0 0-1.06l-3-3ZM5.25 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"></path><path d="M20.25 16.903v-9.59A4.317 4.317 0 0 0 15.937 3H15V1.5a.75.75 0 0 0-1.28-.53l-3 3a.75.75 0 0 0 0 1.06l3 3A.75.75 0 0 0 15 7.5V6h.937a1.312 1.312 0 0 1 1.313 1.312v9.591a3 3 0 1 0 3 0ZM18.75 21a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"></path></svg>
 
@@ -263,7 +262,7 @@ ob_start();
                 </p>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border">
+        <div class="flex flex-col justify-center items-center p-4 bg-white rounded-lg border" data-aos="fade-up" data-aos-offset="150" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
             <div class="flex flex-col justify-center items-center">
                 <svg width="46" height="46" fill="currentColor" viewBox="0 0 24 24" class="w-16 h-16 mb-4 text-primary">
                     <path
@@ -283,7 +282,7 @@ ob_start();
 </section>
 
 <?php /* ----- Temporary disabled -----
-<section id="articles" class="flex flex-col h-full container py-10 px-2 mx-auto rounded-lg" data-aos="fade-up" data-aos-offset="200"
+<section id="articles" class="flex flex-col h-full container py-10 px-2 mx-auto rounded-lg" data-aos="fade-up" data-aos-offset="150"
     data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true">
 
     <?php

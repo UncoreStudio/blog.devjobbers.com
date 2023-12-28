@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $this->setBreadcrumb([
             [
                 "page_title" => "Blog",
-                "page_link" => Main::getInstance()->getRootUrl() . "/blog/",
+                "page_link" => Main::getInstance()->getRootUrl() . "/blog",
             ],
             [
                 "page_title" => $this->category->category_name,

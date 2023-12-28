@@ -4,7 +4,7 @@ ob_start();
 $rows = $this->getController()->getRows();
 ?>
 
-<section class="mx-auto container lg:px-4 mt-24 gap-2">
+<section class="mx-auto min-h-screen container lg:px-4 mt-24 gap-2">
     <?php include("./src/Templates/layouts/breadcrumb.php"); ?>
 
     <?php foreach ($rows as $row) {

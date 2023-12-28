@@ -90,7 +90,7 @@ class Router extends Main
                 $view = new View($controller);
                 $view->render();
             });
-            $r->get($prefix . '/blog/', function () {
+            $r->get($prefix . '/blog', function () {
                 // Handle home page route with BlogController
                 $controller = new BlogController();
                 $view = new View($controller);
